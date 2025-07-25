@@ -3,12 +3,27 @@ using UnityEngine;
 public class ShootingScript : MonoBehaviour
 {
     public GameObject bullet;
+
+    private InventoryManager inventory;
+
+    void Start()
+    {
+        // Cache reference to InventoryManager at start
+        inventory = FindObjectOfType<InventoryManager>();
+    }
+
     void Update()
     {
-        if (Input.GetButtonDown("Fire1")) 
+        if (Input.GetButtonDown("Fire1"))
         {
-            var clone = Instantiate(bullet,gameObject.transform.position,gameObject.transform.rotation);
-            Destroy(clone, 4.0f);
+            if (inventory != null && inventory.ammo > 0)
+            {
+                var clone = Instantiate(bullet, transform.position, transform.rotation);
+                Destroy(clone, 4.0f);
+
+                inventory.UseAmmo(1); 
+            }
+          
         }
     }
 }

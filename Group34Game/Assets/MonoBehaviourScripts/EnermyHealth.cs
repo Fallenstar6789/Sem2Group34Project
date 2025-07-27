@@ -6,14 +6,23 @@ public class EnermyHealth : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.CompareTag("bullet")) 
+        if (other.transform.CompareTag("bullet"))
         {
-            hitNumber++; 
+            hitNumber++;
+            CheckIfDead();
         }
-        if(hitNumber == 2) 
+    }
+    public void TakeDamage(int amount)
+    {
+        hitNumber += amount;
+        CheckIfDead();
+    }
+
+    private void CheckIfDead()
+    {
+        if (hitNumber >= 2)
         {
             Destroy(gameObject);
         }
     }
-
 }

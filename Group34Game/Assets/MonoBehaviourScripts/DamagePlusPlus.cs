@@ -6,7 +6,7 @@ public class DamagePlusPlus : MonoBehaviour
     {
         if (other.transform.CompareTag("Player")) 
         {
-            other.transform.SendMessage("Damage", 1);
+            other.transform.SendMessage("ApplyDamage", 1);
         }
     }
 }

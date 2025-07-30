@@ -1,29 +1,40 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShootingScript : MonoBehaviour
 {
     public GameObject bullet;
-
     private InventoryManager inventory;
+    private PlayerInputActions inputActions;
+
+    void Awake()
+    {
+        inputActions = new PlayerInputActions();
+        inputActions.Player.Shoot.performed += ctx => Fire();
+    }
 
     void Start()
     {
-        // Cache reference to InventoryManager at start
         inventory = FindObjectOfType<InventoryManager>();
     }
 
-    void Update()
+    void Fire()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (inventory != null && inventory.ammo > 0)
         {
-            if (inventory != null && inventory.ammo > 0)
-            {
-                var clone = Instantiate(bullet, transform.position, transform.rotation);
-                Destroy(clone, 4.0f);
-
-                inventory.UseAmmo(1); 
-            }
-          
+            var clone = Instantiate(bullet, transform.position, transform.rotation);
+            Destroy(clone, 4.0f);
+            inventory.UseAmmo(1);
         }
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Enable();
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Disable();
     }
 }

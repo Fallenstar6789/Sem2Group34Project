@@ -4,6 +4,7 @@ public class ShootingScript : MonoBehaviour
 {
     public GameObject bullet;
 <<<<<<< HEAD
+<<<<<<< HEAD
     void Update()
     {
         if (Input.GetButtonDown("Fire1")) 
@@ -13,6 +14,8 @@ public class ShootingScript : MonoBehaviour
         }
     }
 =======
+=======
+>>>>>>> parent of e6b46df (i++)
     private InventoryManager inventory;
     private PlayerInputActions inputActions;
 
@@ -46,5 +49,8 @@ public class ShootingScript : MonoBehaviour
     {
         inputActions.Disable();
     }
+<<<<<<< HEAD
+>>>>>>> parent of e6b46df (i++)
+=======
 >>>>>>> parent of e6b46df (i++)
 }

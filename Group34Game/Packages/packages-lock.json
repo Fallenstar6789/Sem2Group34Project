@@ -85,6 +85,9 @@
       },
       "url": "https://packages.unity.com"
     },
+<<<<<<< HEAD
+>>>>>>> parent of e6b46df (i++)
+=======
 >>>>>>> parent of e6b46df (i++)
     "com.unity.multiplayer.center": {
       "version": "1.0.0",

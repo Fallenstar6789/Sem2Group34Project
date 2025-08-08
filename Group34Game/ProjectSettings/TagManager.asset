@@ -13,8 +13,13 @@ TagManager:
   - UI
   - Player
   - Bullet
+<<<<<<< HEAD
   - 
   - 
+=======
+  - Enemy
+  - GunEffect
+>>>>>>> parent of e6b46df (i++)
   - 
   - 
   - 
